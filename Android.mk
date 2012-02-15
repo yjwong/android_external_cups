@@ -1,3 +1,7 @@
-LOCAL_PATH := $(call my-dir)
-include $(call all-subdir-makefiles)
+# CUPS support for Android
+# (C) 2012 Wong Yong Jie
+
+ifeq ($(TARGET_USES_CUPS),true)
+    include $(call all-subdir-makefiles)
+endif
 
