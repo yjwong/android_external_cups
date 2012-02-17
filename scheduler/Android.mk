@@ -48,3 +48,78 @@ LOCAL_C_INCLUDES := \
         $(LOCAL_PATH)/..
  
 include $(BUILD_EXECUTABLE)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := cupsfilter
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := \
+	cupsfilter.c
+LOCAL_SHARED_LIBRARIES := libcups libcupsmime
+LOCAL_C_INCLUDES := \
+	$(LOCAL_PATH)/..
+
+include $(BUILD_EXECUTABLE)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := cups-deviced
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := \
+	cups-deviced.c \
+	util.c
+LOCAL_SHARED_LIBRARIES := libcups
+LOCAL_C_INCLUDES := \
+	$(LOCAL_PATH)/..
+
+include $(BUILD_EXECUTABLE)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := cups-driverd
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := \
+	cups-driverd.cxx \
+	util.c
+LOCAL_CPP_EXTENSION := .cxx
+LOCAL_SHARED_LIBRARIES := libcups libcupsppdc
+LOCAL_C_INCLUDES := \
+	$(LOCAL_PATH)/..
+
+include $(BUILD_EXECUTABLE)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := cups-exec
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := \
+	cups-exec.c
+LOCAL_C_INCLUDES := \
+	$(LOCAL_PATH)/..
+
+include $(BUILD_EXECUTABLE)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := cups-lpd
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := \
+	cups-lpd.c
+LOCAL_SHARED_LIBRARIES := libcups
+LOCAL_C_INCLUDES := \
+	$(LOCAL_PATH)/..
+
+include $(BUILD_EXECUTABLE)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := cups-polld
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := \
+	cups-polld.c
+LOCAL_SHARED_LIBRARIES := libcups
+LOCAL_C_INCLUDES := \
+	$(LOCAL_PATH)/..
+
+include $(BUILD_EXECUTABLE)
+
