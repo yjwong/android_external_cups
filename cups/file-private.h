@@ -27,7 +27,9 @@
 
 #  include "cups-private.h"
 #  include <stdio.h>
+#  if !defined __BIONIC__
 #  include <stdlib.h>
+#  endif
 #  include <stdarg.h>
 #  include <fcntl.h>
 
@@ -38,19 +40,6 @@
 #    include <io.h>
 #    include <sys/locking.h>
 #  endif /* WIN32 */
-
-/**
- * Android doesn't support lockf(), translate to flock().
- */
-#  ifdef HAVE_ANDROID
-#  define F_LOCK LOCK_EX
-#  define F_TLOCK LOCK_EX | LOCK_NB
-#  define F_ULOCK LOCK_UN
-inline int lockf(int fd, int cmd, off_t ignored_len) {
-  return flock(fd, cmd);
-}
-#  endif
-
 
 /*
  * Some operating systems support large files via open flag O_LARGEFILE...

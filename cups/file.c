@@ -66,6 +66,9 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
+#if defined __BIONIC__
+#include <cups/android-compat.h>
+#endif
 
 /*
  * Local functions...

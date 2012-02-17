@@ -28,11 +28,14 @@
  * Default user and groups...
  */
 
-#define CUPS_DEFAULT_USER	"lp"
-#define CUPS_DEFAULT_GROUP	"sys"
-#define CUPS_DEFAULT_SYSTEM_GROUPS	"sys root system"
+/* #define CUPS_DEFAULT_USER	"lp" */
+/* #define CUPS_DEFAULT_GROUP	"sys" */
+/* #define CUPS_DEFAULT_SYSTEM_GROUPS	"sys root system" */
+/* #define CUPS_DEFAULT_PRINTOPERATOR_AUTH	"@SYSTEM" */
+#define CUPS_DEFAULT_USER "root"
+#define CUPS_DEFAULT_GROUP "root"
+#define CUPS_DEFAULT_SYSTEM_GROUPS "root"
 #define CUPS_DEFAULT_PRINTOPERATOR_AUTH	"@SYSTEM"
-
 
 /*
  * Default file permissions...
@@ -110,7 +113,8 @@
  * Default WebInterface value...
  */
 
-#undef CUPS_DEFAULT_WEBIF
+/* #undef CUPS_DEFAULT_WEBIF */
+#define CUPS_DEFAULT_WEBIF 1
 
 
 /*
@@ -257,7 +261,7 @@
 
 #undef HAVE_SIGSET
 /* #undef HAVE_SIGACTION */
-
+#define HAVE_SIGACTION 1
 
 /*
  * What wait functions to use?
@@ -618,7 +622,8 @@
  * Select/poll interfaces...
  */
 
-#undef HAVE_POLL
+/* #undef HAVE_POLL */
+#define HAVE_POLL
 /* #undef HAVE_EPOLL */
 #undef HAVE_KQUEUE
 

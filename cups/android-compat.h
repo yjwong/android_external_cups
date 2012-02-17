@@ -8,6 +8,21 @@
  */
 
 char *getpass(const char prompt);
-void setpwent(void);
+
+/**
+ * Bionic doesn't support lockf(), translate to flock().
+ */
+
+#  define F_LOCK LOCK_EX
+#  define F_TLOCK LOCK_EX | LOCK_NB
+#  define F_ULOCK LOCK_UN
+
+inline int lockf(int fd, int cmd, off_t ignored_len);
+
+/**
+ * Bionic doesn't support crypt().
+ */
+
+char *crypt(const char *key, const char *salt);
 
 #  endif

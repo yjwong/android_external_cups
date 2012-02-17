@@ -60,6 +60,9 @@
 #ifdef HAVE_CRYPT_H
 #  include <crypt.h>
 #endif /* HAVE_CRYPT_H */
+#if defined __BIONIC__
+#  include <cups/android-compat.h>
+#endif
 #if HAVE_LIBPAM
 #  ifdef HAVE_PAM_PAM_APPL_H
 #    include <pam/pam_appl.h>
