@@ -174,7 +174,11 @@ main(int  argc,				/* I - Number of command-line args */
 
 
   _cupsSetLocale(argv);
+#if !defined __BIONIC__
   loc = localeconv();
+#else
+  loc = NULL;
+#endif
 
  /*
   * Display PPD files for each file listed on the command-line...
