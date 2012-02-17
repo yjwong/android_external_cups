@@ -333,7 +333,11 @@ main(int  argc,				/* I - Number of command-line args */
 		usage();
               }
 
+#if !defined __BIONIC__
 	      vars.timeout = _cupsStrScand(argv[i], NULL, localeconv());
+#else
+	      vars.timeout = _cupsStrScand(argv[i], NULL, NULL);
+#endif
 	      break;
 
 	  case 'V' : /* Set IPP version */
@@ -493,8 +497,12 @@ main(int  argc,				/* I - Number of command-line args */
               }
 	      else
 	      {
+#if !defined __BIONIC__
 		interval = (int)(_cupsStrScand(argv[i], NULL, localeconv()) *
 		                 1000000.0);
+#else
+		interval = (int)(_cupsStrScand(argv[i], NULL, NULL) * 1000000.0);
+#endif
 		if (interval <= 0)
 		{
 		  _cupsLangPuts(stderr,
@@ -1458,7 +1466,11 @@ do_tests(_cups_vars_t *vars,		/* I - Variables */
 	  goto test_exit;
 	}
 
+#if !defined __BIONIC__
 	if ((delay = _cupsStrScand(token, NULL, localeconv())) <= 0.0)
+#else
+	if ((delay = _cupsStrScand(token, NULL, NULL)) <= 0.0)
+#endif
 	{
 	  print_fatal_error("Bad DELAY value \"%s\" on line %d.", token,
 	                    linenum);
